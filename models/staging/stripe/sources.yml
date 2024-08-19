@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: snowflake_dbt_source
+    schema: public
+    tables:
+      - name: stripe_payments
