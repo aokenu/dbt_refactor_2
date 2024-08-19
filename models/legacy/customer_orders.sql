@@ -4,8 +4,8 @@ with paid_orders as (select orders.id as order_id,
             orders.status as order_status,
         p.total_amount_paid,
         p.payment_finalized_date,
-        c.first_name    as customer_first_name,
-            c.last_name as customer_last_name
+        c.first_name    as givenname,
+            c.last_name as surname
     from snowflake_dbt_source.public.jaffle_shop_orders as orders
     left join (select orderid as order_id, max(created) as payment_finalized_date, sum(amount) / 100.0 as total_amount_paid
 from snowflake_dbt_source.public.stripe_payments
